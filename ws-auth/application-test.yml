@@ -40,3 +40,9 @@ management:
   zipkin:
     tracing:
       endpoint: ${ZIPKIN_SERVER}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE}
+  instance:
+    prefer-ip-address: true
