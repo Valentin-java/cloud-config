@@ -7,14 +7,12 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-
 server:
   port: 18889
   servlet:
     encoding:
       force: true
       charset: UTF-8
-
 jwt:
   public:
     key: ${JWT_PUBLIC_SECRET_KEY}
@@ -22,8 +20,16 @@ jwt:
     expiration: 3600000
   refresh-token:
     expiration: 36000000
-
 management:
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_SERVER}
   tracing:
     sampling:
       probability: 1.0
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE}
+  instance:
+    prefer-ip-address: true
